@@ -16,7 +16,7 @@ var app = express();
 
 app.get('/', function(req, res){
   
-  if (req.query.q.length > 0) {
+  if (req.query.q == null) {
     client.search({
       q: req.query.q
     }).then(function (body) {
