@@ -17,11 +17,12 @@ var app = express();
 app.get('/', function(req, res){
   
   if (req.query.q != null) {
+    var theMainRes = res;
     client.search({
       q: req.query.q
     }).then(function (body) {
       var hits = body.hits.hits;
-      res.send("Here are your search results from ElasticSearch:", hits);
+      theMainRes.send("Here are your search results from ElasticSearch:", hits);
     }, function (error) {
       console.trace(error.message);
     });
