@@ -7,8 +7,7 @@ var client = new elasticsearch.Client();
 // load-balanced between them using round-robin
 var client = elasticsearch.Client({
   hosts: [
-    'elasticsearch1:9200',
-    'elasticsearch2:9200'
+    'elasticsearch.runnabledemo.runnable.io:9200'
   ]
 });
 
@@ -16,13 +15,13 @@ var client = elasticsearch.Client({
 // for the rest of the cluster right away, and
 // again every 5 minutes
 var client = elasticsearch.Client({
-  host: 'elasticsearch1:9200',
+  host: 'elasticsearch.runnabledemo.runnable.io:9200',
   sniffOnStart: true,
   sniffInterval: 300000
 });
 
 // Connect to this host using https, basic auth,
 // a path prefix, and static query string values
-var client = new elasticsearch.Client({
-  host: 'https://user:password@elasticsearch1/search?app=blog'
-});
+// var client = new elasticsearch.Client({
+//   host: 'https://user:password@elasticsearch1/search?app=blog'
+// });
