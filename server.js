@@ -17,17 +17,19 @@ var app = express();
 app.get('/', function(req, res){
   
   if (req.query.q != null) {
-    var theMainRes = res;
-    client.search({
-      q: req.query.q
-    }).then(function (body) {
-      var hits = body.hits.hits;
-      theMainRes.send("Here are your search results from ElasticSearch:", hits);
-    }, function (error) {
-      console.trace(error.message);
+       
+    var m_res = "";
+    
+    client.search({q: "to be"}).then(function (body) {
+    // console.log(body.hits.hits);
+    body.hits.hits.forEach(function (res) {
+      m_res += res._source.text_entry + "<br>";
     });
+    res.send(m_res);
+    },function (error) { console.trace(error.message);}); 
+    
   } else {
-    res.send('Hello World!');
+    res.send('This node.js server is connected to an ES backend with some seed data. Please append a query parameter to the URL to search the ES database: ?q=<query>.');
   }
 });
 
