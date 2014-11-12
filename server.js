@@ -8,7 +8,7 @@ var client = new elasticsearch.Client();
 // load-balanced between them using round-robin
 var client = elasticsearch.Client({
   hosts: [
-    'elasticsearchseeddata.runnabledemo.runnable.io:9200'
+    process.env.ES_HOST + ':9200'
   ]
 });
 
