@@ -20,7 +20,7 @@ app.get('/', function(req, res){
        
     var m_res = "";
     
-    client.search({q: "to be"}).then(function (body) {
+    client.search({q:req.query.q}).then(function (body) {
     // console.log(body.hits.hits);
     body.hits.hits.forEach(function (res) {
       m_res += res._source.text_entry + "<br>";
