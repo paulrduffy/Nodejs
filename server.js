@@ -22,6 +22,7 @@ app.get('/', function(req, res){
     
     client.search({q:req.query.q}).then(function (body) {
     // console.log(body.hits.hits);
+    m_res += "<h1> HEY BIG H1 </h1>";
     body.hits.hits.forEach(function (res) {
       m_res += res._source.text_entry + "<br>";
     });
