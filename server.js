@@ -8,7 +8,7 @@ var client = new elasticsearch.Client();
 // load-balanced between them using round-robin
 var client = elasticsearch.Client({
   hosts: [
-    process.env.ES_HOST + ':9200'
+    'ElasticSearch.VendOPDemo.runnable.io:9200'
   ]
 });
 
@@ -30,7 +30,7 @@ app.get('/', function(req, res){
     },function (error) { console.trace(error.message);}); 
     
   } else {
-    res.send('This node.js server is connected to an ES backend with some seed data. Please append a query parameter to the URL to search the ES database: ?q=<query>.');
+    res.send('This node.js server is to an ES3 backend with some seed data. Please append a query parameter to the URL to search the ES database: ?q=<query>.');
   }
 });
 
