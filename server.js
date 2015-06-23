@@ -30,7 +30,7 @@ app.get('/', function(req, res){
     },function (error) { console.trace(error.message);}); 
     
   } else {
-    res.send('This node.js server is to an ES3 backend with some seed data. Please append a query parameter to the URL to search the ES database: ?q=<query>.');
+    res.send('This node.js server is to an ES3 backend with some test data. Please append a query parameter to the URL to search the ES database: ?q=<query>.');
   }
 });
 
